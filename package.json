@@ -1,0 +1,26 @@
+{
+  "name": "tdd-by-example-money-ts",
+  "version": "1.0.0",
+  "description": "The Money Example in TDD by Example written in TS",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "test": "jest"
+  },
+  "author": "Ozan Koksal",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^18.15.10",
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@typescript-eslint/parser": "^5.56.0",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.7",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.0.5",
+    "@types/jest": "^29.5.0"
+  }
+}
