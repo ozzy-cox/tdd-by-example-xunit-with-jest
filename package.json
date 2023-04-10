@@ -1,11 +1,11 @@
 {
   "name": "tdd-by-example-money-ts",
   "version": "1.0.0",
-  "description": "The Money Example in TDD by Example written in TS",
+  "description": "The xUnit example from TDD by example book",
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --ext .ts",
-    "test": "jest"
+    "test": "ts-node src/index.ts`"
   },
   "author": "Ozan Koksal",
   "license": "MIT",
