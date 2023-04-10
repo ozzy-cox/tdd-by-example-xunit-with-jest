@@ -1,22 +1,21 @@
 import assert from 'assert'
 
 class TestCase {
-  [key: string]: any
+  [key: string]: unknown
   name: string
-  wasSetup: boolean
+  log = ''
   constructor(name: string) {
-    this.wasSetup = false
     this.name = name
   }
 
   run() {
     this.setup()
-    const method = this[this.name].bind(this)
+    const method = (this[this.name] as CallableFunction).bind(this)
     method()
   }
 
   setup() {
-    this.wasSetup = true
+    /** */
   }
 }
 
@@ -28,24 +27,30 @@ export class WasRun extends TestCase {
     this.wasRun = false
   }
 
+  setup(): void {
+    this.wasRun = false
+    this.log = 'setup '
+  }
+
   testMethod() {
     this.wasRun = true
+    this.log = this.log + 'testMethod '
+    /** */
   }
 }
 
 export class TestCaseTest extends TestCase {
-  setup() {
-    this.test = new WasRun('testMethod')
-  }
+  test: WasRun | undefined
 
   testSetup() {
+    this.test = new WasRun('testMethod')
     this.test.run()
-    assert(this.test.wasSetup)
+    assert(this.test.log === 'setup testMethod ')
   }
 
-  testRunning() {
-    assert(!this.test.wasRun)
+  testTemplateMethod() {
+    this.test = new WasRun('testMethod')
     this.test.run()
-    assert(this.test.wasRun)
+    assert(this.test.log === 'setup testMethod tearDown ')
   }
 }
