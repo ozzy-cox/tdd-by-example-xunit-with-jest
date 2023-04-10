@@ -12,10 +12,15 @@ class TestCase {
     this.setup()
     const method = (this[this.name] as CallableFunction).bind(this)
     method()
+    this.tearDown()
   }
 
   setup() {
     /** */
+  }
+
+  tearDown() {
+    /**= */
   }
 }
 
@@ -36,6 +41,10 @@ export class WasRun extends TestCase {
     this.wasRun = true
     this.log = this.log + 'testMethod '
     /** */
+  }
+
+  tearDown() {
+    this.log = this.log + 'tearDown '
   }
 }
 
