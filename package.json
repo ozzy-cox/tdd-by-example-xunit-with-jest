@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --ext .ts",
-    "test": "ts-node src/index.ts`"
+    "test": "ts-node src/index.ts"
   },
   "author": "Ozan Koksal",
   "license": "MIT",
